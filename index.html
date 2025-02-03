@@ -11,17 +11,28 @@
             let email = document.getElementById("email").value;
             let message = document.getElementById("message").value;
 
+            // Gmail compose link
             let mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=raunakgarhwal2003@gmail.com&su=Message%20from%20${encodeURIComponent(name)}&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0A%0A${encodeURIComponent(message)}`;
 
+            // Open Gmail in a new tab
             window.open(mailtoLink, "_blank");
+
+            // Change the content of the page to show a thank you message
+            setTimeout(function() {
+                document.getElementById('formContainer').innerHTML = `
+                    <div class="text-center">
+                        <h2 class="text-2xl font-semibold text-white mb-4">Thank you so much!</h2>
+                        <p class="text-white">Your message has been successfully sent. I truly appreciate you taking the time to reach out, and I'll get back to you as soon as possible.</p>
+                    </div>
+                `;
+            }, 100); // Wait for 1 second before displaying the thank you message
         }
     </script>
 </head>
-<body class="bg-gradient-to-r from-black via-gray-800 to-black
-flex items-center justify-center h-screen p-4">
+<body class="bg-gradient-to-r from-gray-800 to-black flex items-center justify-center h-screen p-4">
 
-    <div class="bg-gray-800 text-white p-6 rounded-2xl shadow-lg w-full max-w-md">
-        <h2 class="text-2xl font-semibold text-center mb-4">Contact Raunak</h2>
+    <div id="formContainer" class="bg-gray-800 text-white p-6 rounded-2xl shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-semibold text-center mb-4">Contact Form</h2>
         <form onsubmit="event.preventDefault(); openGmail();">
             <label class="block mb-2">Your Name</label>
             <input type="text" id="name" placeholder="Enter your name" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
