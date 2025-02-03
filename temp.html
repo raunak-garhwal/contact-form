@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Raunak</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function openGmail() {
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+            let mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=raunakgarhwal@gmail.com&su=Message%20from%20${encodeURIComponent(name)}&body=Name:%20${encodeURIComponent(name)}%0AEmail:%20${encodeURIComponent(email)}%0A%0A${encodeURIComponent(message)}`;
+
+            window.open(mailtoLink, "_blank");
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-r from-black via-gray-800 to-black
+flex items-center justify-center h-screen p-4">
+
+    <div class="bg-gray-800 text-white p-6 rounded-2xl shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-semibold text-center mb-4">Contact Raunak</h2>
+        <form onsubmit="event.preventDefault(); openGmail();">
+            <label class="block mb-2">Your Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            
+            <label class="block mt-4 mb-2">Your Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+            
+            <label class="block mt-4 mb-2">Your Message</label>
+            <textarea id="message" placeholder="Type your message" rows="4" required class="w-full p-3 rounded-lg bg-gray-700 border border-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+            
+            <button type="submit" class="w-full mt-5 bg-blue-600 hover:bg-blue-500 transition-all text-white font-semibold py-3 rounded-lg">
+                Send Message
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
